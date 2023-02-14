@@ -1,6 +1,6 @@
 import { Auth } from '@supabase/ui'
 import { supabase } from '../lib/initSupabase'
-import './../style.css'
+import './global.css'
 
 export default function MyApp({ Component, pageProps }) {
   return (
