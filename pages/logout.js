@@ -18,8 +18,9 @@ export default function Logout() {
             }
             )
         await supabase.auth.signOut()
-        router.push('/')
-        
+        setTimeout(() => {
+          router.push('/')
+        }, 1000)
     }
     initialize()
   })
