@@ -3,10 +3,9 @@ import { supabase } from '../lib/initSupabase'
 import Navbar from './components/navbar';
 
 export default function Profile({ user }) {
-  console.log(user)
   return (   
     <>
-       {Navbar(user, "home")}
+       {Navbar(user, "contact")}
     </>
   )
 }

@@ -21,8 +21,9 @@ export default function Profile({ user }) {
             <Typography.Text>
               <pre>{JSON.stringify(user, null, 2)}</pre>
             </Typography.Text>
-
-            <Button type="outline" onClick={() => supabase.auth.signOut()}>Log out</Button>
+            <Link href="/logout">
+              <button className="text-white">Log out</button>
+            </Link>
           </Space>
         </Card>
       </div>
