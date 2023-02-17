@@ -2,6 +2,8 @@ import Link from "next/link";
 import { Card, Typography, Space, Button } from "@supabase/ui";
 import { supabase } from "../lib/initSupabase";
 import Navbar from "./components/navbar";
+import Image from 'next/image'
+import blankProfile from "./static/blank-user-profile.jpg"
 
 export default function Profile({ user }) {
   
@@ -13,6 +15,7 @@ export default function Profile({ user }) {
   return (
 
     <section className="bg-gray-50 dark:bg-gray-900 transition flex items-center justify-center h-screen">
+      <script src="https://unpkg.com/flowbite@1.5.1/dist/flowbite.js"></script>
       {Navbar(user)}
       <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <div className="flex justify-end px-4 pt-4">
@@ -35,7 +38,7 @@ export default function Profile({ user }) {
           </div>
         </div>
         <div className="flex flex-col items-center pb-10">
-          <img className="w-24 h-24 mb-3 rounded-full shadow-lg" src="/docs/images/people/profile-picture-3.jpg" alt="Profile Image" />
+          <Image className="w-24 h-24 mb-3 rounded-full shadow-lg" src={blankProfile} alt="Profile Image" />
           <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">{user.email}</h5>
           <span className="text-sm text-gray-500 dark:text-gray-400">Other infomation I haven't finished </span>
           <div className="flex mt-4 space-x-3 md:mt-6">
