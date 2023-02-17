@@ -14,13 +14,10 @@ export default function Logout() {
                     headers: new Headers({ 'Content-Type': 'application/json' }),
                     credentials: 'same-origin',
                     body: JSON.stringify({ event, session }),
-                }).then((res) => res.json())
+                }).then((res) => router.push('/'))
             }
             )
         await supabase.auth.signOut()
-        setTimeout(() => {
-          router.push('/')
-        }, 1000)
     }
     initialize()
   })
