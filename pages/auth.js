@@ -10,12 +10,16 @@ export default function Profile() {
 
   async function sign_in() {
     console.log("Signing In");
-    await supabase.auth.signIn({ email, password });
+    process.env.NODE_ENV == "development" ? 
+    await supabase.auth.signIn({ email, password, redirectTo: window.location.origin + "/profile" }):
+    await supabase.auth.signIn({ email, password, redirectTo: "/profile"});
     Router.push("/profile");
   }
   async function sign_up() {
     console.log("Creating account");
-    const { data, error } = await supabase.auth.signUp({ email, password });
+    process.env.NODE_ENV == "development" ? 
+    await supabase.auth.signUp({ email, password, redirectTo: window.location.origin + "/afterSignUp" }):
+    await supabase.auth.signUp({ email, password, redirectTo: "/afterSignUp"});
     console.log({ data, error });
   }
   useEffect(() => {
@@ -75,7 +79,7 @@ export default function Profile() {
                     onChange={(e) => {
                       setEmail(e.currentTarget.value);
                     }}
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    className="input-box"
                     placeholder="name@example.com"
                     required=""
                   />
@@ -95,7 +99,7 @@ export default function Profile() {
                       setPassword(e.currentTarget.value);
                     }}
                     placeholder="••••••••"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    className="input-box"
                     required=""
                   />
                 </div>
@@ -124,14 +128,14 @@ export default function Profile() {
                 </div>
                 <button
                   onClick={auth_state == "sign_in" ? sign_in : sign_up}
-                  className="w-full bg-gray-50 border border-gray-300 text-gray-900 hover:bg-gray-900 hover:text-white dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:bg-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-800 transition"
+                  className="w-full bg-gray-50  text-gray-900  dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:bg-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-800 drop-shadow-xl hover:drop-shadow-lg transition"
                 >
                   {auth_state == "sign_in" ? "Sign In" : "Sign Up"}
                 </button>
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
 
                   {auth_state == "sign_in" ? "Don’t have an account?" : "Already have an account?"}{" "}
-                  <a href={auth_state == "sign_in" ? "/auth?sign_up" : "/auth?sign_in"} className="font-medium text-primary-600 hover:underline dark:text-primary-500">
+                  <a href={auth_state == "sign_in" ? "/auth?sign_up" : "/auth?sign_in"} className="font-medium text-primary-600 hover:underline dark:text-primary-500 ">
                     {auth_state == "sign_in" ? "Sign Up" : "Sign In"}
                   </a>
                 </p>

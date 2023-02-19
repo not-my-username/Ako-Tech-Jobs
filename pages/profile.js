@@ -5,6 +5,7 @@ import Navbar from "./components/navbar";
 import Image from 'next/image'
 import blankProfile from "./static/blank-user-profile.jpg"
 
+
 export default function Profile({ user }) {
   
   async function getUserName() {
@@ -15,7 +16,6 @@ export default function Profile({ user }) {
   return (
 
     <section className="bg-gray-50 dark:bg-gray-900 transition flex items-center justify-center h-screen">
-      <script src="https://unpkg.com/flowbite@1.5.1/dist/flowbite.js"></script>
       {Navbar(user)}
       <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <div className="flex justify-end px-4 pt-4">

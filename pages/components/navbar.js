@@ -17,7 +17,7 @@ export default function Navbar(user, current_page) {
             {user ?
               <>
                 <button id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation"  type="button">
-                  <Image src={blankProfile} className="w-10 h-10 rounded-full drop-shadow-xl"></Image>
+                  <Image src={blankProfile} className="w-10 h-10 rounded-full drop-shadow-xl hover:drop-shadow-lg transition" alt='profile image'></Image>
                 </button>
                 <div id="dropdownInformation" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
                   <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
@@ -41,7 +41,7 @@ export default function Navbar(user, current_page) {
                 </div>
 
               </> :
-              <Link href="/login" > <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sign In</button></Link>
+              <Link href="/login" > <button type="button" className=" text-white bg-blue-700 hover:bg-white hover:text-gray-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 drop-shadow-xl hover:drop-shadow-lg transition">Sign In</button></Link>
             }
             <button data-collapse-toggle="navbar-sticky" type="button" className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
               <span className="sr-only">Open main menu</span>
@@ -50,17 +50,17 @@ export default function Navbar(user, current_page) {
           </div>
           <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
             <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-              <li>
-                {current_page == "home" ? <a href="/" className="navbar-link-current drop-shadow-md bg-white p-2 pr-3 pl-4" aria-current="page">Home</a> : <a href="/" className="navbar-link drop-shadow-xl bg-white p-2 pr-3 pl-4 hover:drop-shadow-lg transition">Home</a>}
+              <li className="w-f">
+                {current_page == "home" ? <a href="/" className="navbar-link-current" aria-current="page">Home</a> : <a href="/" className="navbar-link navbar-link">Home</a>}
+              </li>
+              <li> 
+                {current_page == "about" ? <a href="/about" className="navbar-link-current " aria-current="page">About</a> : <a href="/about" className="navbar-link navbar-link">About</a>}
               </li>
               <li>
-                {current_page == "about" ? <a href="/about" className="navbar-link-current drop-shadow-md bg-white p-2 pr-3 pl-4" aria-current="page">About</a> : <a href="/about" className="navbar-link drop-shadow-xl bg-white p-2 pr-3 pl-4 hover:drop-shadow-lg transition">About</a>}
+                {current_page == "services" ? <a href="/about" className="navbar-link-curret " aria-current="page">Services</a> : <a href="/services" className="navbar-link navbar-link" >Services</a>}
               </li>
               <li>
-                {current_page == "services" ? <a href="/about" className="navbar-link-current drop-shadow-md bg-white p-2 pr-3 pl-4" aria-current="page">Services</a> : <a href="/services" className="navbar-link drop-shadow-xl bg-white p-2 pr-3 pl-4 hover:drop-shadow-lg transition" >Services</a>}
-              </li>
-              <li>
-                {current_page == "contact" ? <a href="/contact" className="navbar-link-current drop-shadow-md bg-white p-2 pr-3 pl-4" aria-current="page">Contact</a> : <a href="/contact" className="navbar-link drop-shadow-xl bg-white p-2 pr-3 pl-4 hover:drop-shadow-lg transition">Contact</a>}
+                {current_page == "contact" ? <a href="/contact" className="navbar-link-current " aria-current="page">Contact</a> : <a href="/contact" className="navbar-link navbar-link">Contact</a>}
               </li>
             </ul>
           </div>

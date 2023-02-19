@@ -4,9 +4,10 @@ import Navbar from './components/navbar';
 
 export default function Profile({ user }) {
   return (   
-    <>
+    <section className="bg-gray-50 dark:bg-gray-900 transition h-screen">
+    
        {Navbar(user, "contact")}
-    </>
+    </section>
   )
 }
 
