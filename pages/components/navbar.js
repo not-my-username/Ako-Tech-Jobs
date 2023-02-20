@@ -3,9 +3,25 @@ import { Card, Typography, Space, Button } from '@supabase/ui'
 import { supabase } from '../../lib/initSupabase'
 import Image from 'next/image'
 import blankProfile from "../static/blank-user-profile.jpg"
+import { useState } from 'react'
 
 export default function Navbar(user, current_page) {
-  // user.user_metadata = {"name":"Liam"}
+
+  const [name, setName] = useState("")
+
+  async function getName() {
+    try {
+      const { data, error } = await supabase.from('profile').select()
+      console.log({data, error})
+      return data[0]["display_name"]
+    } catch (TypeError) {}
+  }
+
+  getName().then(name => {
+    console.log(name);
+    setName(name)
+  })
+
   return (
     <>
       <nav className="bg-white px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
@@ -21,8 +37,8 @@ export default function Navbar(user, current_page) {
                 </button>
                 <div id="dropdownInformation" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
                   <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
-                    <div>Bonnie Green</div>
-                    <div class="font-medium truncate">name@flowbite.com</div>
+                    <div>{name}</div>
+                    <div class="font-medium truncate">{user.email}</div>
                   </div>
                   <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownInformationButton">
                     <li>

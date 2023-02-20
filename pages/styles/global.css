@@ -4,10 +4,10 @@
 
 @layer components {
     .navbar-link {
-      @apply block drop-shadow-xl bg-white  hover:drop-shadow-md transition py-2 rounded pr-4 pl-4 w-20 text-center text-gray-700;
+      @apply block drop-shadow-xl bg-white  hover:drop-shadow-md transition py-2 rounded pr-4 pl-4 w-24 text-center text-gray-700;
     }
     .navbar-link-current {
-      @apply block drop-shadow-md bg-white hover:drop-shadow-md transition py-2 rounded pr-4 pl-4 w-20 text-center text-blue-700;
+      @apply block drop-shadow-md bg-white hover:drop-shadow-md transition py-2 rounded pr-4 pl-4 w-24 text-center text-blue-700;
     }
     .button {
       @apply w-full bg-gray-50  text-gray-900  dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:bg-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center drop-shadow-xl hover:drop-shadow-lg transition

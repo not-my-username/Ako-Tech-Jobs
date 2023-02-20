@@ -3,7 +3,7 @@ import { supabase } from '../lib/initSupabase'
 import Navbar from './components/navbar';
 
 export default function Profile({ user }) {
-  console.log(user)
+  
   return (
     <section className="bg-gray-50 dark:bg-gray-900 transition h-screen">
       {Navbar(user, "home")}
